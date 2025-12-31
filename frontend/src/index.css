@@ -1,0 +1,296 @@
+/* index.css */
+/* Global styles for Pipeline Builder - Modern Dark Theme */
+
+/* ============================================
+   CSS VARIABLES - Easy to customize
+   ============================================ */
+:root {
+  /* Background colors */
+  --bg-primary: #0f0f1a;
+  --bg-secondary: #1a1a2e;
+  --bg-tertiary: #16213e;
+  --bg-card: #1e1e32;
+  
+  /* Accent colors */
+  --accent-primary: #6366f1;
+  --accent-secondary: #8b5cf6;
+  --accent-success: #10b981;
+  --accent-warning: #f59e0b;
+  --accent-danger: #ef4444;
+  --accent-info: #3b82f6;
+  
+  /* Text colors */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  /* Border colors */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.2);
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.3);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 
+    'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* ============================================
+   REACT FLOW OVERRIDES
+   ============================================ */
+.react-flow {
+  background: var(--bg-primary) !important;
+}
+
+.react-flow__background {
+  background-color: var(--bg-primary) !important;
+}
+
+/* Grid dots */
+.react-flow__background pattern circle {
+  fill: var(--text-muted) !important;
+}
+
+/* Connection lines */
+.react-flow__edge-path {
+  stroke: var(--accent-primary) !important;
+  stroke-width: 2px !important;
+}
+
+.react-flow__edge.animated path {
+  stroke-dasharray: 5 !important;
+  animation: flowAnimation 0.5s linear infinite !important;
+}
+
+@keyframes flowAnimation {
+  from {
+    stroke-dashoffset: 10;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Connection line while dragging */
+.react-flow__connection-line {
+  stroke: var(--accent-secondary) !important;
+  stroke-width: 2px !important;
+  stroke-dasharray: 5, 5 !important;
+}
+
+/* Selection box */
+.react-flow__selection {
+  background: rgba(99, 102, 241, 0.1) !important;
+  border: 1px solid var(--accent-primary) !important;
+}
+
+/* Mini map */
+.react-flow__minimap {
+  background: var(--bg-secondary) !important;
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--border-color) !important;
+  overflow: hidden !important;
+}
+
+.react-flow__minimap-mask {
+  fill: rgba(99, 102, 241, 0.1) !important;
+}
+
+.react-flow__minimap-node {
+  fill: var(--accent-primary) !important;
+  stroke: none !important;
+}
+
+/* Controls panel */
+.react-flow__controls {
+  border-radius: var(--radius-md) !important;
+  overflow: hidden !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.react-flow__controls-button {
+  background: var(--bg-secondary) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  color: var(--text-secondary) !important;
+  width: 32px !important;
+  height: 32px !important;
+  padding: 6px !important;
+  transition: var(--transition-fast) !important;
+}
+
+.react-flow__controls-button:hover {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+}
+
+.react-flow__controls-button:last-child {
+  border-bottom: none !important;
+}
+
+.react-flow__controls-button svg {
+  fill: currentColor !important;
+}
+
+/* Attribution (hidden) */
+.react-flow__attribution {
+  display: none !important;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-1 { gap: 4px; }
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+
+.p-1 { padding: 4px; }
+.p-2 { padding: 8px; }
+.p-3 { padding: 12px; }
+.p-4 { padding: 16px; }
+
+.rounded { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+
+.text-sm { font-size: 12px; }
+.text-base { font-size: 14px; }
+.text-lg { font-size: 16px; }
+
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+.text-muted { color: var(--text-muted); }
+.text-secondary { color: var(--text-secondary); }
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease;
+}
+
+/* ============================================
+   NODE SELECTION STATES
+   ============================================ */
+.react-flow__node.selected > div {
+  box-shadow: 0 0 0 2px var(--accent-primary), var(--shadow-glow) !important;
+}
+
+.react-flow__node:focus > div {
+  outline: none !important;
+  box-shadow: 0 0 0 2px var(--accent-primary), var(--shadow-glow) !important;
+}
+
+/* ============================================
+   EDGE MARKERS
+   ============================================ */
+.react-flow__arrowhead polyline {
+  stroke: var(--accent-primary) !important;
+  fill: var(--accent-primary) !important;
+}

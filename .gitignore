@@ -1,0 +1,21 @@
+# Virtual environment
+venv/
+env/
+.venv/
+
+# PDF files
+*.pdf
+
+# Node modules (already ignored but just in case)
+node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment files
+.env
+
+# OS files
+.DS_Store
+Thumbs.db

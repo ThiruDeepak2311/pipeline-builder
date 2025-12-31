@@ -1,0 +1,64 @@
+/* draggableNode.css */
+/* Styles for draggable toolbar nodes */
+
+.draggable-node {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, #1e1e32 0%, #252542 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: grab;
+  transition: all 0.2s ease;
+  user-select: none;
+  min-width: 80px;
+  justify-content: center;
+}
+
+.draggable-node:hover {
+  background: linear-gradient(135deg, #252542 0%, #2d2d52 100%);
+  border-color: rgba(99, 102, 241, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2),
+              0 0 0 1px rgba(99, 102, 241, 0.1);
+}
+
+.draggable-node:active {
+  cursor: grabbing;
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.draggable-node-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.draggable-node-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #e2e8f0;
+  white-space: nowrap;
+}
+
+/* Drag ghost styling */
+.draggable-node:active .draggable-node-label {
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .draggable-node {
+    padding: 8px 12px;
+    min-width: 70px;
+  }
+  
+  .draggable-node-icon {
+    font-size: 14px;
+  }
+  
+  .draggable-node-label {
+    font-size: 11px;
+  }
+}

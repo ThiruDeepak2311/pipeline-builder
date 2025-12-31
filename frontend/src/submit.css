@@ -1,0 +1,103 @@
+/* submit.css */
+/* Styles for the submit button */
+
+.submit-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+  background: linear-gradient(180deg, #16213e 0%, #1a1a2e 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4),
+              0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5),
+              0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  background: linear-gradient(135deg, #7577f5 0%, #9d6efa 100%);
+}
+
+.submit-button:hover::before {
+  left: 100%;
+}
+
+.submit-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(99, 102, 241, 0.4);
+}
+
+.submit-icon {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.submit-button:hover .submit-icon {
+  transform: translateX(2px) rotate(-15deg);
+}
+
+.submit-text {
+  letter-spacing: 0.3px;
+}
+
+/* Loading state (for future use) */
+.submit-button.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.submit-button.loading .submit-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .submit-container {
+    padding: 12px 16px;
+  }
+  
+  .submit-button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}

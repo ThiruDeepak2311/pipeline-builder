@@ -1,0 +1,23 @@
+/* App.css */
+/* Main application layout styles */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: #0f0f1a;
+}
+
+.app-main {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ensure ReactFlow takes full space */
+.app-main > div {
+  width: 100% !important;
+  height: 100% !important;
+}

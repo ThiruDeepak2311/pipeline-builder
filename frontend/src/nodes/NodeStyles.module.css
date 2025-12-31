@@ -1,0 +1,286 @@
+/* NodeStyles.module.css */
+/* Styling for all pipeline nodes - Professional dark theme */
+
+/* ============================================
+   BASE NODE CONTAINER
+   ============================================ */
+.baseNode {
+  min-width: 240px;
+  min-height: 80px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 2px solid #2d3748;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 
+              0 0 0 1px rgba(255, 255, 255, 0.05);
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.baseNode:hover {
+  border-color: #4a5568;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 
+              0 0 0 1px rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   HEADER SECTION
+   ============================================ */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px 10px 0 0;
+}
+
+.icon {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================
+   CONTENT SECTION
+   ============================================ */
+.content {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ============================================
+   HANDLE STYLING
+   ============================================ */
+.handle {
+  width: 12px !important;
+  height: 12px !important;
+  background: #4a5568 !important;
+  border: 2px solid #2d3748 !important;
+  transition: all 0.2s ease !important;
+}
+
+.handle:hover {
+  background: #63b3ed !important;
+  border-color: #4299e1 !important;
+  transform: scale(1.3);
+}
+
+/* ============================================
+   HANDLE LABELS - Positioned outside node
+   ============================================ */
+.inputLabels {
+  position: absolute;
+  left: -8px;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-100%);
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+
+.outputLabels {
+  position: absolute;
+  right: -8px;
+  top: 0;
+  bottom: 0;
+  transform: translateX(100%);
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+
+.handleLabel {
+  position: absolute;
+  transform: translateY(-50%);
+  font-size: 10px;
+  color: #a0aec0;
+  white-space: nowrap;
+  background: rgba(15, 15, 26, 0.9);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.inputLabels .handleLabel {
+  right: 0;
+}
+
+.outputLabels .handleLabel {
+  left: 0;
+}
+
+/* ============================================
+   CATEGORY COLOR CODING
+   ============================================ */
+
+/* Input nodes - Green accent */
+.input .header {
+  background: linear-gradient(90deg, rgba(72, 187, 120, 0.2) 0%, transparent 100%);
+}
+.input {
+  border-color: rgba(72, 187, 120, 0.4);
+}
+.input:hover {
+  border-color: rgba(72, 187, 120, 0.7);
+}
+.input .handle {
+  background: #48bb78 !important;
+  border-color: #2f855a !important;
+}
+
+/* Output nodes - Red accent */
+.output .header {
+  background: linear-gradient(90deg, rgba(245, 101, 101, 0.2) 0%, transparent 100%);
+}
+.output {
+  border-color: rgba(245, 101, 101, 0.4);
+}
+.output:hover {
+  border-color: rgba(245, 101, 101, 0.7);
+}
+.output .handle {
+  background: #f56565 !important;
+  border-color: #c53030 !important;
+}
+
+/* AI/LLM nodes - Purple accent */
+.ai .header {
+  background: linear-gradient(90deg, rgba(159, 122, 234, 0.2) 0%, transparent 100%);
+}
+.ai {
+  border-color: rgba(159, 122, 234, 0.4);
+}
+.ai:hover {
+  border-color: rgba(159, 122, 234, 0.7);
+}
+.ai .handle {
+  background: #9f7aea !important;
+  border-color: #6b46c1 !important;
+}
+
+/* Processing nodes - Blue accent */
+.processing .header {
+  background: linear-gradient(90deg, rgba(66, 153, 225, 0.2) 0%, transparent 100%);
+}
+.processing {
+  border-color: rgba(66, 153, 225, 0.4);
+}
+.processing:hover {
+  border-color: rgba(66, 153, 225, 0.7);
+}
+.processing .handle {
+  background: #4299e1 !important;
+  border-color: #2b6cb0 !important;
+}
+
+/* Utility nodes - Yellow accent */
+.utility .header {
+  background: linear-gradient(90deg, rgba(236, 201, 75, 0.2) 0%, transparent 100%);
+}
+.utility {
+  border-color: rgba(236, 201, 75, 0.4);
+}
+.utility:hover {
+  border-color: rgba(236, 201, 75, 0.7);
+}
+.utility .handle {
+  background: #ecc94b !important;
+  border-color: #b7791f !important;
+}
+
+/* ============================================
+   FORM ELEMENTS INSIDE NODES
+   ============================================ */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fieldRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.label {
+  font-size: 11px;
+  color: #a0aec0;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.input, .select, .textarea {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: #e2e8f0;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input:focus, .select:focus, .textarea:focus {
+  border-color: #4299e1;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+}
+
+.input::placeholder, .textarea::placeholder {
+  color: #4a5568;
+}
+
+.select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23a0aec0' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 28px;
+}
+
+.textarea {
+  resize: none;
+  min-height: 60px;
+  line-height: 1.4;
+}
+
+/* ============================================
+   DESCRIPTION TEXT
+   ============================================ */
+.description {
+  font-size: 11px;
+  color: #718096;
+  line-height: 1.4;
+}
+
+/* ============================================
+   NODE SELECTED STATE (ReactFlow adds this)
+   ============================================ */
+.baseNode.selected, 
+.baseNode:focus {
+  border-color: #63b3ed;
+  box-shadow: 0 0 0 2px rgba(99, 179, 237, 0.3),
+              0 8px 30px rgba(0, 0, 0, 0.4);
+}

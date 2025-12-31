@@ -1,0 +1,142 @@
+/* toolbar.css */
+/* Styles for the pipeline toolbar */
+
+.toolbar {
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 10;
+}
+
+/* Logo and Header */
+.toolbar-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 160px;
+  padding-right: 24px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toolbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  font-size: 24px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+.toolbar-subtitle {
+  font-size: 11px;
+  color: #64748b;
+  letter-spacing: 0.2px;
+}
+
+/* Nodes Container */
+.toolbar-nodes {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  flex: 1;
+  overflow-x: auto;
+  padding: 4px 0;
+}
+
+/* Node Groups */
+.node-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.group-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #64748b;
+  padding-left: 4px;
+}
+
+.group-nodes {
+  display: flex;
+  gap: 8px;
+}
+
+/* Scrollbar for toolbar */
+.toolbar-nodes::-webkit-scrollbar {
+  height: 4px;
+}
+
+.toolbar-nodes::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.toolbar-nodes::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .toolbar {
+    padding: 10px 16px;
+    gap: 20px;
+  }
+  
+  .toolbar-header {
+    min-width: 140px;
+    padding-right: 16px;
+  }
+  
+  .logo-text {
+    font-size: 16px;
+  }
+  
+  .toolbar-nodes {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .toolbar-header {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-right: 0;
+    padding-bottom: 12px;
+    width: 100%;
+  }
+  
+  .toolbar-nodes {
+    width: 100%;
+  }
+}
