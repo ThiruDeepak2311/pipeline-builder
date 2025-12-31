@@ -2,6 +2,12 @@
 
 A visual, drag-and-drop pipeline builder for creating AI workflows. Built with React and ReactFlow, this application allows users to design complex data pipelines by connecting modular nodes — similar to tools like VectorShift, n8n, and Zapier.
 
+## 🌐 Live Demo
+
+**[View Live Demo →](https://pipeline-builder-six.vercel.app/)**
+
+**Backend API:** [https://pipeline-builder-production.up.railway.app](https://pipeline-builder-production.up.railway.app)
+
 ---
 
 ## 🎯 Purpose
@@ -60,6 +66,12 @@ Modern AI applications often require complex workflows that chain multiple opera
 | **Pydantic** | Data validation |
 | **Uvicorn** | ASGI server |
 
+### Deployment
+| Service | Purpose |
+|---------|---------|
+| **Vercel** | Frontend hosting |
+| **Railway** | Backend hosting |
+
 ---
 
 ## 📁 Project Structure
@@ -69,27 +81,29 @@ pipeline-builder/
 ├── frontend/
 │   ├── src/
 │   │   ├── nodes/
-│   │   │   ├── BaseNode.js        # Core abstraction component
+│   │   │   ├── BaseNode.js          # Core abstraction component
 │   │   │   ├── NodeStyles.module.css
 │   │   │   ├── inputNode.js
 │   │   │   ├── outputNode.js
 │   │   │   ├── llmNode.js
-│   │   │   ├── textNode.js        # Dynamic variable handles
+│   │   │   ├── textNode.js          # Dynamic variable handles
 │   │   │   ├── apiNode.js
 │   │   │   ├── filterNode.js
 │   │   │   ├── mergeNode.js
 │   │   │   ├── conditionalNode.js
 │   │   │   └── noteNode.js
 │   │   ├── App.js
-│   │   ├── store.js               # Zustand state management
-│   │   ├── ui.js                  # ReactFlow canvas
-│   │   ├── toolbar.js             # Draggable node palette
-│   │   ├── submit.js              # Backend integration
-│   │   └── index.css              # Global styles
+│   │   ├── store.js                 # Zustand state management
+│   │   ├── ui.js                    # ReactFlow canvas
+│   │   ├── toolbar.js               # Draggable node palette
+│   │   ├── submit.js                # Backend integration
+│   │   └── index.css                # Global styles
 │   └── package.json
 │
 ├── backend/
-│   └── main.py                    # FastAPI + DAG validation
+│   ├── main.py                      # FastAPI + DAG validation
+│   ├── requirements.txt
+│   └── runtime.txt
 │
 └── README.md
 ```
@@ -107,7 +121,7 @@ pipeline-builder/
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/YOUR_USERNAME/pipeline-builder.git
+git clone https://github.com/ThiruDeepak2311/pipeline-builder.git
 cd pipeline-builder
 ```
 
@@ -122,7 +136,7 @@ Frontend runs at `http://localhost:3000`
 **3. Setup Backend**
 ```bash
 cd backend
-pip install fastapi uvicorn pydantic
+pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
 ```
 Backend runs at `http://localhost:8000`
@@ -202,6 +216,10 @@ const regex = /\{\{\s*([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\}\}/g;
 ```python
 # Topological sort to detect cycles
 # If visited_count != total_nodes, there's a cycle
+def check_dag(nodes, edges):
+    # Build adjacency list and in-degree count
+    # Use Kahn's algorithm to detect cycles
+    # Returns True if valid DAG, False otherwise
 ```
 
 ---
@@ -236,7 +254,7 @@ MIT License — feel free to use this project for learning or as a starting poin
 
 **Deepak Thirukkumaran**
 
-- GitHub: [@your-username](https://github.com/your-username)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/your-profile)
+- GitHub: [@ThiruDeepak2311](https://github.com/ThiruDeepak2311)
+- LinkedIn: [Deepak Thirukkumaran](https://linkedin.com/in/deepak-thirukkumaran)
 
 ---
